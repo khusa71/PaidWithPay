@@ -1,0 +1,45 @@
+// {
+//     "compilerOptions": {
+//       "target": "ES2020",
+//       "useDefineForClassFields": true,
+//       "lib": ["ES2020", "DOM", "DOM.Iterable"],
+//       "module": "ESNext",
+//       "skipLibCheck": true,
+//       "moduleResolution": "bundler",
+//       "allowImportingTsExtensions": true,
+//       "resolveJsonModule": true,
+//       "isolatedModules": true,
+//       "noEmit": true,
+//       "jsx": "react-jsx",
+//       "baseUrl": ".",
+//       "paths": {
+//         "@/*": ["./src/*"]
+//       }
+//     },
+//     "include": ["src"],
+//     "references": [{ "path": "./tsconfig.node.json" }]
+//   }
+
+  {
+    "compilerOptions": {
+      "target": "ES2020",
+      "useDefineForClassFields": true,
+      "lib": ["ES2020", "DOM", "DOM.Iterable"],
+      "module": "ESNext",
+      "skipLibCheck": true,
+      "moduleResolution": "bundler", // Or "node" if needed
+      "allowImportingTsExtensions": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "jsx": "react-jsx", // Or "react" if compatibility issues
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["./src/*"]
+      },
+      "strict": true
+    },
+    "include": ["src"],
+    "references": [{ "path": "./tsconfig.node.json" }]
+  }
+  
