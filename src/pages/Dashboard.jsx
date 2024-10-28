@@ -107,50 +107,49 @@ const Home = () => {
         ))}
       </div>
 
-      {/* Recent Transactions */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Recent Transactions</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Recipient</TableHead>
-                <TableHead>Amount</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead>Action</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {recentTransactions.map((transaction) => (
-                <TableRow key={transaction.id}>
-                  <TableCell>{transaction.recipient}</TableCell>
-                  <TableCell>{transaction.amount}</TableCell>
-                  <TableCell>
-                    <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
-                      transaction.status === 'Completed'
-                        ? 'bg-green-100 text-green-700'
-                        : transaction.status === 'In Escrow'
-                        ? 'bg-blue-100 text-blue-700'
-                        : 'bg-yellow-100 text-yellow-700'
-                    }`}>
-                      {transaction.status}
-                    </span>
-                  </TableCell>
-                  <TableCell>{transaction.date}</TableCell>
-                  <TableCell>
-                    <Button variant="ghost" size="sm">
-                      View Details
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+{/* Recent Transactions */}
+<Card>
+  <CardHeader>
+    <CardTitle>Recent Transactions</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead className="text-left">Recipient</TableHead>
+          <TableHead className="text-left">Amount</TableHead>
+          <TableHead className="text-left">Status</TableHead>
+          <TableHead className="text-left">Date</TableHead>
+          <TableHead className="text-left">Action</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {recentTransactions.map((transaction) => (
+          <TableRow key={transaction.id}>
+            <TableCell className="text-left">{transaction.recipient}</TableCell>
+            <TableCell className="text-left">{transaction.amount}</TableCell>
+            <TableCell className="text-left">
+              <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
+                transaction.status === 'Completed'
+                  ? 'bg-green-100 text-green-700'
+                  : transaction.status === 'In Escrow'
+                  ? 'bg-blue-100 text-blue-700'
+                  : 'bg-yellow-100 text-yellow-700'
+              }`}>
+                {transaction.status}
+              </span>
+            </TableCell>
+            <TableCell className="text-left">{transaction.date}</TableCell>
+            <TableCell className="text-left" style={{ padding: '8px 0' }}>
+              <Button variant="ghost" size="sm">View Details</Button>
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </CardContent>
+</Card>
+
 
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

@@ -9,14 +9,27 @@ const footerLinks = {
   Support: ['Help Center', 'Documentation', 'API Status', 'Contact Us']
 };
 
+// Link component for reusability and accessibility
+const FooterLink = ({ link }) => (
+  <li>
+    <a
+      href="#"
+      className="text-gray-400 hover:text-white transition-colors"
+      aria-label={link}
+    >
+      {link}
+    </a>
+  </li>
+);
+
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Footer */}
-        <div className="py-12 grid grid-cols-2 md:grid-cols-6 gap-8">
+        <div className="py-12 grid grid-cols-1 md:grid-cols-6 gap-8">
           {/* Logo Section */}
-          <div className="col-span-2">
+          <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
               <Shield className="h-8 w-8 text-blue-400" />
               <span className="ml-2 text-xl font-bold">SecureEscrow</span>
@@ -28,20 +41,13 @@ export function Footer() {
 
           {/* Links Sections */}
           {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title} className="col-span-1">
+            <div key={title} className="col-span-1 md:col-span-1">
               <h3 className="text-sm font-semibold text-gray-100 uppercase tracking-wider mb-4">
                 {title}
               </h3>
               <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      {link}
-                    </a>
-                  </li>
+                {links.map(link => (
+                  <FooterLink key={link} link={link} />
                 ))}
               </ul>
             </div>
@@ -55,15 +61,16 @@ export function Footer() {
               © 2024 SecureEscrow. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Cookie Policy
-              </a>
+              {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map(policy => (
+                <a
+                  key={policy}
+                  href="#"
+                  className="text-gray-400 hover:text-white transition-colors"
+                  aria-label={policy}
+                >
+                  {policy}
+                </a>
+              ))}
             </div>
           </div>
         </div>
