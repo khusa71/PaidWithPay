@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
 const menuItems = [
-  { icon: Home, label: 'Dashboard', path: '/' },
+  { icon: Home, label: 'Dashboard', path: '/dashboard' },
   { icon: Clock, label: 'Transactions', path: '/transactions' },
   { icon: PlusCircle, label: 'New Payment', path: '/new-payment' },
   { icon: AlertTriangle, label: 'Disputes', path: '/disputes' },
