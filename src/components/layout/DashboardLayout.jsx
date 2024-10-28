@@ -1,25 +1,20 @@
 import React from 'react';
-import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import Navbar from './Navbar';
-import Sidebar from './Sidebar';
+import { Outlet } from 'react-router-dom';
+import { Navbar } from '@/components/shared/Navbar';
+import { Sidebar } from './Sidebar';
 
-const DashboardLayout = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  // Optional: Redirect to login if not authenticated
-  // React.useEffect(() => {
-  //   if (!isAuthenticated) {
-  //     navigate('/');
-  //   }
-  // }, [navigate]);
-
+export function DashboardLayout() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <div className="flex h-[calc(100vh-64px)]">
-        <Sidebar />
-        <main className="flex-1 overflow-auto bg-gray-50 p-6">
+    <div className="min-h-screen bg-gray-50">
+      <Navbar variant="dashboard" />
+      <div className="flex h-screen pt-16">
+        {/* Sidebar */}
+        <aside className="w-64 fixed left-0 top-16 bottom-0 bg-white border-r overflow-y-auto">
+          <Sidebar />
+        </aside>
+
+        {/* Main Content */}
+        <main className="ml-64 flex-1 p-6 overflow-y-auto">
           <div className="max-w-7xl mx-auto">
             <Outlet />
           </div>
@@ -27,6 +22,4 @@ const DashboardLayout = () => {
       </div>
     </div>
   );
-};
-
-export default DashboardLayout;
+}

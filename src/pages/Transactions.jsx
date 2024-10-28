@@ -150,41 +150,41 @@ const Transactions = () => {
             </div>
           </div>
 
-          <div className="rounded-md border">
+          <div className="rounded-md border overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Transaction ID</TableHead>
-                  <TableHead>Date</TableHead>
-                  <TableHead>Recipient</TableHead>
-                  <TableHead>Amount</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Deadline</TableHead>
-                  <TableHead>Protection</TableHead>
-                  <TableHead>Action</TableHead>
+                  <TableHead className="text-left px-4 py-2">Transaction ID</TableHead>
+                  <TableHead className="text-left px-4 py-2">Date</TableHead>
+                  <TableHead className="text-left px-4 py-2">Recipient</TableHead>
+                  <TableHead className="text-right px-4 py-2">Amount</TableHead>
+                  <TableHead className="text-left px-4 py-2">Status</TableHead>
+                  <TableHead className="text-center px-4 py-2">Deadline</TableHead>
+                  <TableHead className="text-center px-4 py-2">Protection</TableHead>
+                  <TableHead className="text-center px-4 py-2">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {transactions.map((transaction) => (
                   <TableRow key={transaction.id}>
-                    <TableCell className="font-mono">{transaction.id}</TableCell>
-                    <TableCell>{transaction.date}</TableCell>
-                    <TableCell>{transaction.recipient}</TableCell>
-                    <TableCell>{transaction.amount}</TableCell>
-                    <TableCell>
+                    <TableCell className="px-4 py-2 font-mono text-left">{transaction.id}</TableCell>
+                    <TableCell className="px-4 py-2 text-left">{transaction.date}</TableCell>
+                    <TableCell className="px-4 py-2 text-left">{transaction.recipient}</TableCell>
+                    <TableCell className="px-4 py-2 text-right">{transaction.amount}</TableCell>
+                    <TableCell className="px-4 py-2 text-left">
                       <span className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-medium ${getStatusColor(transaction.status)}`}>
                         {getStatusIcon(transaction.status)}
                         {transaction.status}
                       </span>
                     </TableCell>
-                    <TableCell>{transaction.deadline}</TableCell>
-                    <TableCell>
+                    <TableCell className="px-4 py-2 text-center">{transaction.deadline}</TableCell>
+                    <TableCell className="px-4 py-2 text-center">
                       <span className="inline-flex items-center gap-1">
                         <Shield className="h-4 w-4 text-blue-600" />
                         {transaction.protection}
                       </span>
                     </TableCell>
-                    <TableCell>
+                    <TableCell className="px-4 py-2 text-center">
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                           <Button variant="ghost" size="sm">
