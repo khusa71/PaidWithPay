@@ -42,12 +42,12 @@ const securityFeatures = [
 
 const securityMetrics = [
   { 
-    value: '₹100Cr+', 
+    value: '₹1Cr+', 
     label: 'Secure Transactions',
     icon: Server
   },
   { 
-    value: '100%', 
+    value: '99.99%', 
     label: 'Success Rate',
     icon: CheckCircle2
   },
