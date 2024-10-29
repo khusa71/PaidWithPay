@@ -11,14 +11,15 @@ import Settings from '@/pages/Settings';
 import Documentation from '@/pages/Documentation';
 import Support from '@/pages/Support';
 
-
-
 function App() {
   return (
     <Router>
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
+        
+        {/* Redirect /lander to / */}
+        <Route path="/lander" element={<LandingPage />}/>
         
         {/* Dashboard Routes */}
         <Route path="/app" element={<DashboardLayout />}>
