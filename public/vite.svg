@@ -1,46 +1,26 @@
-import React from 'react';
-import { Shield } from 'lucide-react';
-
-const IconComponent = () => {
-  return (
-    <div className="relative w-8 h-8">
-      {/* Decorative background shields */}
-      <div className="absolute inset-0 rotate-45">
-        <Shield 
-          size={32}
-          strokeWidth={1.5}
-          className="absolute inset-0 text-blue-600 opacity-5"
-        />
-      </div>
-      <div className="absolute inset-0 -rotate-45">
-        <Shield 
-          size={32}
-          strokeWidth={1.5}
-          className="absolute inset-0 text-blue-600 opacity-5"
-        />
-      </div>
-
-      {/* Secondary shield with glow effect */}
-      <Shield 
-        size={32}
-        strokeWidth={2}
-        className="absolute inset-0 text-blue-400 opacity-20 blur-[0.5px]"
-      />
-      
-      {/* Main shield with gradient effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-700 mix-blend-soft-light opacity-30" />
-      
-      {/* Primary shield */}
-      <Shield 
-        size={32}
-        strokeWidth={2}
-        className="absolute inset-0 text-blue-600"
-      />
-
-      {/* Highlight overlay */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-200 to-transparent opacity-10" />
-    </div>
-  );
-};
-
-export default IconComponent;
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+    </filter>
+  </defs>
+  {/* Background shield */}
+  <path 
+    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+    fill="none"
+    stroke="#2563eb"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.05"
+  />
+  {/* Main shield */}
+  <path 
+    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+    fill="none"
+    stroke="#2563eb"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
