@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+    </filter>
+  </defs>
+  {/* Background shield */}
+  <path 
+    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+    fill="none"
+    stroke="#2563eb"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.05"
+  />
+  {/* Main shield */}
+  <path 
+    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+    fill="none"
+    stroke="#2563eb"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
