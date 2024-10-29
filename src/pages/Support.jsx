@@ -48,7 +48,7 @@ const faqs = [
       'Once you confirm delivery, payments are typically released to the seller within 24 hours. For first-time users, there might be an additional verification period of up to 48 hours for security purposes.'
   },
   {
-    question: 'What are the fees for using SecureEscrow?',
+    question: 'What are the fees for using PaidWithPay?',
     answer:
       'We charge a small fee based on the protection level you choose: Standard Protection (0.5% of transaction value) or Premium Protection (1% of transaction value). There are no hidden charges or additional fees.'
   }

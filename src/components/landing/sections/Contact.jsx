@@ -21,7 +21,7 @@ const contactMethods = [
   {
     icon: Mail,
     title: 'Email',
-    value: 'support@secureescrow.com',
+    value: 'support@PaidWithPay.com',
     color: 'bg-green-100 text-green-600'
   },
   {

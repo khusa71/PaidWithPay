@@ -23,7 +23,7 @@ const steps = [
   },
   {
     number: '02',
-    title: 'Secure Escrow',
+    title: 'Paid With Pay',
     description: 'Your money is safely held',
     details: 'Funds are securely stored in our bank-grade escrow system until delivery is confirmed.',
     icon: ShieldCheck,
@@ -176,7 +176,7 @@ export function HowItWorks({
             Secure Process
           </Badge>
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            How SecureEscrow Works
+            How PaidWithPay Works
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Your step-by-step guide to secure transactions

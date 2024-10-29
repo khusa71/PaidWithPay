@@ -110,7 +110,7 @@ export function Features() {
           className="mt-16 text-center"
         >
           <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-            Start Using SecureEscrow
+            Start Using PaidWithPay
           </Button>
         </motion.div>
       </div>

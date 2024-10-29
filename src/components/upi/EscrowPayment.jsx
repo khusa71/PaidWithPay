@@ -30,7 +30,7 @@ const EscrowPayment = () => {
           <CardContent className="pt-6">
             <div className="flex flex-col items-center justify-center">
               <Shield className="h-16 w-16 text-blue-600 mb-4" />
-              <h1 className="text-2xl font-semibold text-center">SecureEscrow Pay</h1>
+              <h1 className="text-2xl font-semibold text-center">PaidWithPay Pay</h1>
               <p className="text-gray-500 text-center mt-2">
                 UPI Payments with Built-in Escrow Protection
               </p>

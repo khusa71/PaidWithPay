@@ -61,7 +61,7 @@ export function HowItWorks() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl font-bold mb-4">
-            How SecureEscrow Works
+            How PaidWithPay Works
           </h2>
           <p className="text-lg text-gray-600">
             Our simple four-step process ensures secure transactions between buyers and sellers.

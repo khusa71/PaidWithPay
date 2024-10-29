@@ -261,7 +261,7 @@ const NewPayment = () => {
           Back
         </Button>
         <h1 className="text-2xl font-bold">Create New Payment</h1>
-        <p className="text-gray-500">Set up a new secure escrow payment</p>
+        <p className="text-gray-500">Set up a new Paid With Pay payment</p>
       </div>
 
       <Card>

@@ -49,7 +49,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
               <Shield className="h-8 w-8 text-blue-400" />
-              <span className="ml-2 text-xl font-bold">SecureEscrow</span>
+              <span className="ml-2 text-xl font-bold">PaidWithPay</span>
             </div>
             <p className="text-gray-400 mb-4">
               Secure payments made simple with UPI and escrow protection.
@@ -73,7 +73,7 @@ export function Footer() {
         <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 SecureEscrow. All rights reserved.
+              © 2024 PaidWithPay. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               {[

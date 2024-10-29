@@ -37,7 +37,7 @@ export function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Shield className="h-8 w-8 text-blue-600" />
-          <span className="text-xl font-bold">SecureEscrow</span>
+          <span className="text-xl font-bold">PaidWithPay</span>
         </div>
 
         {/* Desktop Navigation */}

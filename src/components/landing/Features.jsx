@@ -36,7 +36,7 @@ export function Features() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Why Choose SecureEscrow?</h2>
+          <h2 className="text-3xl font-bold mb-4">Why Choose PaidWithPay?</h2>
           <p className="text-lg text-gray-600">
             We combine UPI convenience with escrow security
           </p>

@@ -144,7 +144,7 @@ export function Navbar({ variant = 'landing' }) {
               className="flex items-center gap-2 hover:bg-transparent rounded-none h-16 pl-0"
             >
               <Shield className="h-6 w-6 text-blue-600" />
-              <span className="text-lg font-bold">SecureEscrow</span>
+              <span className="text-lg font-bold">PaidWithPay</span>
             </Button>
 
             {/* Navigation Section */}

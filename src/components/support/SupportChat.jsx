@@ -16,7 +16,7 @@ const SupportChat = () => {
     {
       id: 1,
       type: 'system',
-      content: 'Welcome to SecureEscrow Support! How can we help you today?',
+      content: 'Welcome to PaidWithPay Support! How can we help you today?',
       timestamp: new Date(),
     },
     {

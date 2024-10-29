@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 
 export function CTA({
   title = "Ready to Make Secure Payments?",
-  description = "Join thousands of users who trust SecureEscrow for their transactions",
+  description = "Join thousands of users who trust PaidWithPay for their transactions",
   primaryButtonText = "Start Your First Transaction",
   secondaryButtonText = "View Dashboard",
   primaryButtonPath = "/app/new-payment",

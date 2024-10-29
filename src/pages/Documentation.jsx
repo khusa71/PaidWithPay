@@ -26,12 +26,12 @@ const Documentation = () => {
       icon: Book,
       articles: [
         {
-          title: 'What is SecureEscrow?',
-          content: 'SecureEscrow is a secure payment platform that protects both buyers and sellers...'
+          title: 'What is PaidWithPay?',
+          content: 'PaidWithPay is a secure payment platform that protects both buyers and sellers...'
         },
         {
           title: 'How to Create an Account',
-          content: 'Follow these simple steps to create your SecureEscrow account...'
+          content: 'Follow these simple steps to create your PaidWithPay account...'
         },
         {
           title: 'Making Your First Transaction',
@@ -88,7 +88,7 @@ const Documentation = () => {
       <div className="space-y-2">
         <h1 className="text-3xl font-bold">Documentation</h1>
         <p className="text-gray-500">
-          Everything you need to know about using SecureEscrow
+          Everything you need to know about using PaidWithPay
         </p>
       </div>
 

@@ -27,8 +27,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_APP_TITLE: SecureEscrow
-          VITE_BASE_URL: /SecureEscrow
+          VITE_APP_TITLE: PaidWithPay
+          VITE_BASE_URL: /PaidWithPay
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
