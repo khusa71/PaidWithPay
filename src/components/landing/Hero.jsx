@@ -6,8 +6,9 @@ import {
   CreditCard, CheckCircle2, Banknote 
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import EscrowTransactionVisual from './EscrowTransactionVisual'; // Import the new component
 
-// Animated shield background pattern
+// Keep your existing components
 const ShieldPattern = () => (
   <div className="absolute inset-0 overflow-hidden opacity-5">
     <div className="absolute inset-0 flex flex-wrap gap-8 rotate-12 scale-110">
@@ -18,7 +19,6 @@ const ShieldPattern = () => (
   </div>
 );
 
-// Floating icon with trail effect
 const FloatingIcon = ({ icon: Icon, className, delay = 0 }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.5 }}
@@ -52,7 +52,6 @@ const FloatingIcon = ({ icon: Icon, className, delay = 0 }) => (
   </motion.div>
 );
 
-// Animated wave decoration
 const WaveDecoration = () => (
   <svg 
     className="absolute bottom-0 left-0 right-0 text-white w-full h-24"
@@ -112,13 +111,13 @@ export function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="relative z-10"
           >
-            {/* Trust badge */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -158,7 +157,7 @@ export function Hero() {
                 size="lg" 
                 variant="secondary"
                 className="group"
-                onClick={() => navigate('/app/new-payment')}
+                onClick={() => navigate('/app/NewPayment')}
               >
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -173,7 +172,6 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Trust indicators */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -199,7 +197,7 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Hero illustration */}
+          {/* Right content - Enhanced Animation */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -217,20 +215,8 @@ export function Hero() {
                 animate={{ rotate: [-3, -5, -3] }}
                 transition={{ duration: 5, repeat: Infinity }}
               />
-              <div className="absolute inset-0 bg-white rounded-lg shadow-xl flex items-center justify-center">
-                <motion.div
-                  animate={{ 
-                    scale: [0.9, 1, 0.9],
-                    rotate: [0, 5, 0]
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                >
-                  <Shield className="w-48 h-48 text-blue-600" />
-                </motion.div>
+              <div className="absolute inset-0">
+                <EscrowTransactionVisual />
               </div>
             </div>
           </motion.div>
