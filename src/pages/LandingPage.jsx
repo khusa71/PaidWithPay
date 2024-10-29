@@ -6,6 +6,8 @@ import { HowItWorks } from '@/components/landing/HowItWorks';
 import { Stats } from '@/components/landing/Stats';
 import { CTA } from '@/components/landing/CTA';
 import { Footer } from '@/components/landing/Footer';
+import { Security } from '@/components/landing/Security';
+import { Contact } from '@/components/landing/Contact';
 
 export default function LandingPage() {
   return (
@@ -14,8 +16,9 @@ export default function LandingPage() {
       <Hero />
       <Features />
       <HowItWorks />
-      <Stats />
+      <Security />
       <CTA />
+      <Contact />
       <Footer />
     </div>
   );

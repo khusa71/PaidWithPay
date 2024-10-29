@@ -34,7 +34,7 @@ export function Navbar({ variant = 'landing' }) {
       const handleScroll = () => {
         setIsScrolled(window.scrollY > 0);
         
-        const sections = ['features', 'how-it-works', 'security', 'contact'];
+        const sections = ['features', 'HowItWorks', 'security', 'contact'];
         const currentSection = sections.find(section => {
           const element = document.getElementById(section);
           if (element) {
@@ -54,7 +54,7 @@ export function Navbar({ variant = 'landing' }) {
   const navLinks = variant === 'landing'
     ? [
         { name: 'Features', href: '#features', id: 'features', icon: Home },
-        { name: 'How It Works', href: '#how-it-works', id: 'how-it-works', icon: Shield },
+        { name: 'How It Works', href: '#HowItWorks', id: 'HowItWorks', icon: Shield },
         { name: 'Security', href: '#security', id: 'security', icon: Shield },
         { name: 'Contact', href: '#contact', id: 'contact', icon: Bell },
       ]
