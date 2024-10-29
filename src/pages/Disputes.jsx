@@ -40,6 +40,7 @@ import {
 } from "@/components/ui/accordion";
 
 const Disputes = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedDispute, setSelectedDispute] = useState(null);
 
   // Mock dispute data
@@ -70,7 +71,7 @@ const Disputes = () => {
         }
       ]
     },
-    // Add more mock disputes
+    // Add more mock disputes as needed
   ];
 
   const getStatusColor = (status) => {
@@ -84,6 +85,105 @@ const Disputes = () => {
       default:
         return 'bg-gray-100 text-gray-700';
     }
+  };
+
+  const handleViewDetails = (dispute) => {
+    setSelectedDispute(dispute);
+    setIsDialogOpen(true);
+  };
+
+  const DisputeDetails = ({ dispute }) => {
+    if (!dispute) return null;
+    
+    return (
+      <div className="space-y-6">
+        {/* Dispute Information */}
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <p className="text-sm text-gray-500">Transaction ID</p>
+            <p className="font-mono">{dispute.transactionId}</p>
+          </div>
+          <div>
+            <p className="text-sm text-gray-500">Amount</p>
+            <p className="font-medium">{dispute.amount}</p>
+          </div>
+          <div>
+            <p className="text-sm text-gray-500">Seller</p>
+            <p className="font-mono">{dispute.seller}</p>
+          </div>
+          <div>
+            <p className="text-sm text-gray-500">Status</p>
+            <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${getStatusColor(dispute.status)}`}>
+              {dispute.status}
+            </span>
+          </div>
+        </div>
+
+        {/* Timeline */}
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="timeline">
+            <AccordionTrigger>Dispute Timeline</AccordionTrigger>
+            <AccordionContent>
+              <div className="space-y-4">
+                {dispute.timeline.map((event, index) => (
+                  <div key={index} className="relative pb-8">
+                    {index !== dispute.timeline.length - 1 && (
+                      <span
+                        className="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
+                        aria-hidden="true"
+                      />
+                    )}
+                    <div className="relative flex items-start space-x-3">
+                      <div>
+                        <div className="relative px-1">
+                          <div className="h-8 w-8 bg-blue-100 rounded-full ring-8 ring-white flex items-center justify-center">
+                            <MessageCircle className="h-5 w-5 text-blue-600" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div>
+                          <div className="text-sm">
+                            <span className="font-medium text-gray-900">
+                              {event.event}
+                            </span>
+                          </div>
+                          <p className="mt-0.5 text-sm text-gray-500">
+                            {event.date}
+                          </p>
+                        </div>
+                        <div className="mt-2 text-sm text-gray-700">
+                          <p>{event.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+
+        {/* Actions */}
+        <div className="space-y-4">
+          <p className="font-medium">Actions</p>
+          <div className="flex space-x-3">
+            <Button variant="outline">
+              <MessageCircle className="mr-2 h-4 w-4" />
+              Send Message
+            </Button>
+            <Button variant="outline">
+              <FileText className="mr-2 h-4 w-4" />
+              Upload Evidence
+            </Button>
+            <Button variant="destructive">
+              <XCircle className="mr-2 h-4 w-4" />
+              Escalate
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -169,9 +269,16 @@ const Disputes = () => {
                   </TableCell>
                   <TableCell>{dispute.reason}</TableCell>
                   <TableCell>
-                    <Dialog>
+                    <Dialog open={isDialogOpen && selectedDispute?.id === dispute.id} onOpenChange={(open) => {
+                      setIsDialogOpen(open);
+                      if (!open) setSelectedDispute(null);
+                    }}>
                       <DialogTrigger asChild>
-                        <Button variant="outline" size="sm">
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => handleViewDetails(dispute)}
+                        >
                           View Details
                         </Button>
                       </DialogTrigger>
@@ -182,97 +289,7 @@ const Disputes = () => {
                             Review dispute information and updates
                           </DialogDescription>
                         </DialogHeader>
-                        
-                        <div className="space-y-6">
-                          {/* Dispute Information */}
-                          <div className="grid grid-cols-2 gap-4">
-                            <div>
-                              <p className="text-sm text-gray-500">Transaction ID</p>
-                              <p className="font-mono">{dispute.transactionId}</p>
-                            </div>
-                            <div>
-                              <p className="text-sm text-gray-500">Amount</p>
-                              <p className="font-medium">{dispute.amount}</p>
-                            </div>
-                            <div>
-                              <p className="text-sm text-gray-500">Seller</p>
-                              <p className="font-mono">{dispute.seller}</p>
-                            </div>
-                            <div>
-                              <p className="text-sm text-gray-500">Status</p>
-                              <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${getStatusColor(dispute.status)}`}>
-                                {dispute.status}
-                              </span>
-                            </div>
-                          </div>
-
-                          {/* Timeline */}
-                          <Accordion type="single" collapsible>
-                            <AccordionItem value="timeline">
-                              <AccordionTrigger>Dispute Timeline</AccordionTrigger>
-                              <AccordionContent></AccordionContent>
-                              {/* Continuing from the previous Disputes component... */}
-
-<AccordionContent>
-  <div className="space-y-4">
-    {dispute.timeline.map((event, index) => (
-      <div key={index} className="relative pb-8">
-        {index !== dispute.timeline.length - 1 && (
-          <span
-            className="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
-            aria-hidden="true"
-          />
-        )}
-        <div className="relative flex items-start space-x-3">
-          <div>
-            <div className="relative px-1">
-              <div className="h-8 w-8 bg-blue-100 rounded-full ring-8 ring-white flex items-center justify-center">
-                <MessageCircle className="h-5 w-5 text-blue-600" />
-              </div>
-            </div>
-          </div>
-          <div className="min-w-0 flex-1">
-            <div>
-              <div className="text-sm">
-                <span className="font-medium text-gray-900">
-                  {event.event}
-                </span>
-              </div>
-              <p className="mt-0.5 text-sm text-gray-500">
-                {event.date}
-              </p>
-            </div>
-            <div className="mt-2 text-sm text-gray-700">
-              <p>{event.description}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-</AccordionContent>
-                            </AccordionItem>
-                          </Accordion>
-
-                          {/* Actions */}
-                          <div className="space-y-4">
-                            <p className="font-medium">Actions</p>
-                            <div className="flex space-x-3">
-                              <Button variant="outline">
-                                <MessageCircle className="mr-2 h-4 w-4" />
-                                Send Message
-                              </Button>
-                              <Button variant="outline">
-                                <FileText className="mr-2 h-4 w-4" />
-                                Upload Evidence
-                              </Button>
-                              <Button variant="destructive">
-                                <XCircle className="mr-2 h-4 w-4" />
-                                Escalate
-                              </Button>
-                            </div>
-                          </div>
-                        </div>
+                        <DisputeDetails dispute={dispute} />
                       </DialogContent>
                     </Dialog>
                   </TableCell>

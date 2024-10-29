@@ -1,24 +1,43 @@
 import React from 'react';
 import { Shield } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const footerLinks = {
-  Product: ['Features', 'Security', 'Pricing', 'FAQ'],
-  Company: ['About Us', 'Careers', 'Blog', 'Contact'],
-  Legal: ['Privacy Policy', 'Terms of Service', 'Compliance', 'Security'],
-  Support: ['Help Center', 'Documentation', 'API Status', 'Contact Us']
+  Product: [
+    { name: 'Features', path: '/features' },
+    { name: 'Security', path: '/security' },
+    { name: 'Pricing', path: '/pricing' },
+    { name: 'FAQ', path: '/faq' }
+  ],
+  Company: [
+    { name: 'About Us', path: '/about' },
+    { name: 'Careers', path: '/careers' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Contact', path: '/contact' }
+  ],
+  Legal: [
+    { name: 'Privacy Policy', path: '/privacy-policy' },
+    { name: 'Terms of Service', path: '/terms' },
+    { name: 'Compliance', path: '/compliance' },
+    { name: 'Security', path: '/security' }
+  ],
+  Support: [
+    { name: 'Help Center', path: '/help' },
+    { name: 'Documentation', path: '/docs' },
+    { name: 'API Status', path: '/status' },
+    { name: 'Contact Us', path: '/contact' }
+  ]
 };
 
-// Link component for reusability and accessibility
-const FooterLink = ({ link }) => (
+const FooterLink = ({ link, path }) => (
   <li>
-    <a
-      href="#"
+    <Link
+      to={path}
       className="text-gray-400 hover:text-white transition-colors"
       aria-label={link}
     >
       {link}
-    </a>
+    </Link>
   </li>
 );
 
@@ -26,9 +45,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Main Footer */}
         <div className="py-12 grid grid-cols-1 md:grid-cols-6 gap-8">
-          {/* Logo Section */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
               <Shield className="h-8 w-8 text-blue-400" />
@@ -39,37 +56,39 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Links Sections */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title} className="col-span-1 md:col-span-1">
               <h3 className="text-sm font-semibold text-gray-100 uppercase tracking-wider mb-4">
                 {title}
               </h3>
               <ul className="space-y-2">
-                {links.map(link => (
-                  <FooterLink key={link} link={link} />
+                {links.map(({ name, path }) => (
+                  <FooterLink key={name} link={name} path={path} />
                 ))}
               </ul>
             </div>
           ))}
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
               © 2024 SecureEscrow. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map(policy => (
-                <a
-                  key={policy}
-                  href="#"
+              {[
+                { name: 'Privacy Policy', path: '/privacy-policy' },
+                { name: 'Terms of Service', path: '/terms' },
+                { name: 'Cookie Policy', path: '/cookie-policy' }
+              ].map(({ name, path }) => (
+                <Link
+                  key={name}
+                  to={path}
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label={policy}
+                  aria-label={name}
                 >
-                  {policy}
-                </a>
+                  {name}
+                </Link>
               ))}
             </div>
           </div>

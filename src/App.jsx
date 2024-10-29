@@ -11,6 +11,8 @@ import Settings from '@/pages/Settings';
 import Documentation from '@/pages/Documentation';
 import Support from '@/pages/Support';
 
+
+
 function App() {
   return (
     <Router>
